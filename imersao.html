@@ -158,17 +158,22 @@ Licence URI: https://www.os-templates.com/template-terms
         <p>Na terceira etapa foi elaborado um questionário com o intuito de conseguir alguns dados considerados
           importantes para o projeto. Com isso, foi verificado como alunos e professores, principalmente, fazem
           publicações e pesquisam a respeito de conteúdos relacionados ao meio acadêmico. Ainda, foi investigado a
-          respeito da satisfação desses indivíduos sobre o processo.
+          respeito da satisfação desses indivíduos sobre o processo.</p>
 
-          Resultado:
+        <p class="sub-subtitulo">Resultado</p>
 
-          Com maioria das pessoas sendo estudantes e professores. Grande parte já teve dificuldade em divulgar e
-          pesquisar sobre temas relacionados ao meio acadêmico. Além disso, foi identificado que existem muitos sites
-          relacionados a conteúdos específicos do meio acadêmico que acabam sendo de boa qualidade, porém pelo conteúdo
-          ser específico, o acesso ao conteúdo acadêmico geral acaba ficando dividido entre vários sistemas, sendo
-          necessário o indivíduo precisar de fato pesquisar para receber a informação, o que acaba fazendo com que a
-          pessoa não receba a informação a não ser que pesquise.</p>
+        <p>Com maioria dos respondentes sendo estudantes e professores. Grande parte já teve dificuldade em divulgar ou
+          pesquisar sobre temas relacionados ao meio acadêmico. Além disso foi identificado que muitos utilizam sites
+          com
+          conteúdos especificos relacinados ao tema, ou redes socias. A maior parte dos respondentes definiu como
+          mediano
+          ou ruim para a pesquisa e divulgação de counteúdos acadêmicos nas redes, enquanto que sites com conteúdos mais
+          específicos
+          for am mais bem avalidas.</p>
+
+
       </section>
+      <div> <canvas id="pieChart"></canvas></div>
 
       <div class="clear"></div>
 
@@ -239,6 +244,25 @@ Licence URI: https://www.os-templates.com/template-terms
   <!-- Homepage specific -->
   <script src="layout/scripts/jquery.easypiechart.min.js"></script>
   <!-- / Homepage specific -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    //pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        datasets: [{
+          data: [300, 50, 100, 40, 120],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
 </body>
 
 </html>
