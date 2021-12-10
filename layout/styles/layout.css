@@ -1712,3 +1712,8 @@ html {
 .sub-subtitulo{
 	font-size: 1.7rem;
 }
+
+.comentario{
+	font-style: italic;
+	text-align: justify;
+}
