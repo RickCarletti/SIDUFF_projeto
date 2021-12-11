@@ -170,19 +170,34 @@ Licence URI: https://www.os-templates.com/template-terms
         <p class="titulo">Questionário</p>
         <p>Na terceira etapa foi elaborado um questionário com o intuito de conseguir alguns dados considerados
           importantes para o projeto. Com isso, foi verificado como alunos e professores, principalmente, fazem
-          publicações e pesquisam a respeito de conteúdos relacionados ao meio acadêmico. Ainda, foi investigado a
-          respeito da satisfação desses indivíduos sobre o processo.
+          publicações e pesquisam a respeito de conteúdos relacionados ao meio acadêmico ou vagas de estágio.</p>
+        <p>Ainda, foi investigado a respeito da satisfação desses indivíduos sobre o processo.Para isso, foi avaliada a experiencia da realização do feito
+          em sistemas com tais possibilidades. Tal avaliação foi feita a partir da decisão do respondente a respeito das opções: ruim, médio, bom, muito bom e excelente. Diante disso,
+          foi estabelecida uma nota de zero a dez com base nas escolhas dos valores citados, sendo dez excelente e zero ruim.
+        </p>
 
-          Resultado:
+        <div class="row">
+          <div class="col-sm-4"> <canvas id="pieChart"></canvas></div>
+          <div class="col-sm-4"> <canvas id="pieChart2"></canvas></div>
+          <div class="col-sm-4">
+            <p class="sub-subtitulo">Resultado</p>
 
-          Com maioria das pessoas sendo estudantes e professores. Grande parte já teve dificuldade em divulgar e
-          pesquisar sobre temas relacionados ao meio acadêmico. Além disso, foi identificado que existem muitos sites
-          relacionados a conteúdos específicos do meio acadêmico que acabam sendo de boa qualidade, porém pelo conteúdo
-          ser específico, o acesso ao conteúdo acadêmico geral acaba ficando dividido entre vários sistemas, sendo
-          necessário o indivíduo precisar de fato pesquisar para receber a informação, o que acaba fazendo com que a
-          pessoa não receba a informação a não ser que pesquise.</p>
+            <p>Com maioria dos respondentes sendo estudantes e professores. Grande parte já teve dificuldade em divulgar
+              ou
+              pesquisar sobre temas relacionados ao meio acadêmico. Além disso foi identificado que muitos utilizam
+              sites
+              com
+              conteúdos especificos relacinados ao tema, ou redes socias. A maior parte dos respondentes definiu como
+              mediano
+              ou ruim para a pesquisa e divulgação de counteúdos acadêmicos em sistemas menos formais, enquanto que sites de cunho mais formal
+              foram mais bem avalidos. Vale ressaltar que sistemas com conteúdos menos diversificados receberam uma melhor avalição.</p>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+        <p></p>
+          <div style="height: 300px"><canvas id="barChart"></canvas></div>
       </section>
-
       <div class="clear"></div>
 
       <section id="entrevista">
@@ -303,6 +318,91 @@ Licence URI: https://www.os-templates.com/template-terms
   <!-- Homepage specific -->
   <script src="layout/scripts/jquery.easypiechart.min.js"></script>
   <!-- / Homepage specific -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
+    integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    //pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: ["Ensino Superior(Cursando)", "Doutorado", "Ensino Superior", "Ensino Médio"],
+        datasets: [{
+          data: [7, 1, 2, 3],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    //pie2
+    var ctxP = document.getElementById("pieChart2").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      label: 'teste,',
+      data: {
+        labels: ["Tiveram dificuldade de pesquisar", "Não tiveram dificuldade"],
+        datasets: [{
+          data: [9, 4],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+
+    //chart3
+    //bar
+    var ctxB = document.getElementById("barChart").getContext('2d');
+    ctxB.height = 500;
+    var myBarChart = new Chart(ctxB, {
+      type: 'bar',
+      data: {
+        labels: ["Portal UFF", "Linkedin", "Email", "Facebook", "Instagram" , "Telegram", "whatsapp"],
+        datasets: [{
+          label: 'Nota de avaliação do processo de divulgação ou busca relacionada ao meio acadêmico ou estágio',
+          data: [3, 6.5, 6, 4, 3, 6, 4.5],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)',
+            'rgba(255,99,132,1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+                suggestedMin: 0,
+                suggestedMax: 10
+            }
+        }
+      }
+        
+    });
+
+  </script>
 </body>
 
 </html>
